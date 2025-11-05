@@ -1,0 +1,74 @@
+.login{
+    width:100%;
+    height:100%;
+    display:flex;   
+    background:linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    margin:0;
+}
+
+.login .leftPanel{
+    width:400px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    flex:1;
+    color:white;
+}
+
+.login .rightPanel{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login .rightPanel .card{
+    width: 300px;
+    padding: 20px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+input{
+    width:100%;
+    height:30px;
+    padding:10px;
+    border-radius:5px;
+    border:1px solid grey;
+    outline:none;
+}
+
+
+input:focus{
+    border:2px solid #ff7e5f;
+}
+
+
+
+.login .leftPanel h2{
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+.login .leftPanel p{
+    font-size: 24px;
+}
+.login .rightPanel p span{
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.login .rightPanel .card button{
+    width:100%;
+    height:35px;
+    background:linear-gradient(to right, #ff7e5f 0%, #feb47b 100%);
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
