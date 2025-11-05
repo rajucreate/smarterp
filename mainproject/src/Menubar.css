@@ -1,0 +1,40 @@
+.menubar{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 35px auto;
+}
+.menubar .icon{
+    margin: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    line-height: 35px;
+    padding-left: 5px;
+}
+.menubar nav{
+    height: 100%;
+    overflow: auto;
+    margin: 0 2px;
+}
+.menubar nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menubar nav ul li{
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 2px;
+    background: #bbdfef;
+    border-left: 5px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.menubar nav ul li:hover{
+    background: #dfeefd;
+    border-left: 5px solid dodgerblue;
+}
+.menubar nav ul li img{
+    height: 16px;
+    margin-right: 10px;
+}

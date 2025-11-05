@@ -53,45 +53,51 @@ app.post("/signup", async (req, res) => {
 
 
 //LOGIN OPERATION
-app.post("/login", async (req, res)=>{
-    try
-    {
-        await client.connect(); //Establish connection with MongoDB
-        const db = client.db(dbName); //Connecting wit the DB
+// LOGIN OPERATION
+app.post("/login", async (req, res) => {
+    try {
+        const user = await db.collection("users").findOne({
+            email: req.body.email,
+            password: req.body.password
+        });
 
-        const user = await db.collection("users").findOne({email: req.body.email, password: req.body.password});
-        if(!user)
+        if (!user)
             return res.status(200).json("301::Invalid Credentials!");
 
         res.status(200).json("300::Login Success");
-    }catch(err)
-    {
-        console.log(err);
-    }finally
-    {
-        await client.close(); // Close the Connection
+    } catch (err) {
+        console.error(err);
+        res.status(500).json("500::Internal Server Error");
     }
 });
-//FETCH USER'S FULL NAME
-app.post("/getfullname", async (req, res)=>{
-    try
-    {
-        await client.connect(); //Establish connection with MongoDB
-        const db = client.db(dbName); //Connecting wit the DB
 
-        const user = await db.collection("users").findOne({email: req.body.email});
-        if(!user)
+// FETCH USER'S FULL NAME
+app.post("/getfullname", async (req, res) => {
+    try {
+        const user = await db.collection("users").findOne({ email: req.body.email });
+        if (!user)
             return res.status(200).json("301::Invalid User!");
 
-        res.status(200).json(user);
-    }catch(err)
-    {
-        console.log(err);
-    }finally
-    {
-        await client.close(); // Close the Connection
+        const menus = [
+            { mid: "M001", mtitle: "Users", micon: "user.png" },
+            { mid: "M002", mtitle: "My Profile", micon: "profile.png" },
+            { mid: "M003", mtitle: "Settings", micon: "settings.png" },
+        ];
+
+        res.status(200).json({
+            user,
+            menus: [
+                { mid: "M001", mtitle: "Users", micon: "user.png" },
+                { mid: "M002", mtitle: "My Profile", micon: "profile.png" },
+                { mid: "M003", mtitle: "Settings", micon: "settings.png" }
+            ]
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json("Internal Server Error");
     }
 });
+
 
 // mongodb+srv://admin:admin@cluster0.tbdmmt7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 // mongodb+srv://admin:<db_password>@cluster0.j4wmui3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

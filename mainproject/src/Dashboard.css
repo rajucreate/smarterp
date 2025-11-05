@@ -1,0 +1,47 @@
+.dashboard{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50px auto 30px;
+    grid-template-columns: 200px auto;
+}
+.dashboard .header{
+    grid-column: 1 / span 2;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+.dashboard .menu{
+    background: #f2f4f6;
+}
+.dashboard .workspace{
+    background: white;
+}
+.dashboard .footer{
+    grid-column: 1 / span 2;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    font-size: 8pt;
+}
+.dashboard .header .logo{
+    font-size: 12pt;
+    font-weight: bold;
+}
+.dashboard .header .userinfo{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.dashboard .header .userinfo img{
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.dashboard .header .userinfo img:hover{
+    opacity: 0.6;
+}
